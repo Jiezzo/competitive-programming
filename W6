@@ -1,0 +1,79 @@
+1)hartal
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+void hartal(int n, int p ,int h[]){
+   int days[200],r=0,i,k,f;
+    for(int i =0;i<n;i++)
+        days[i]=0;
+    for(i=0;i<p;i++){
+        f=h[i];
+        if(f>n)
+            break;
+        else{
+            k=-1;
+        while(k<=n){
+            k+=f;
+            if(k%7!=5 && k%7!=6)
+                days[k]=1;
+        }
+    }
+    }   
+    for(i=0;i<n;i++)
+        r+=days[i];
+    printf("%d\n",r);
+}
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int t,n,p,h[200],i;
+    scanf("%d",&t);
+    while(t){
+        scanf("%d",&n);
+        scanf("%d",&p);
+        for(i=0;i<p;i++)
+            scanf("%d",&h[i]);
+           
+        hartal(n,p,h);
+        t--;
+    }
+    return 0;
+}
+2)Dawood
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    
+    int num;
+    cin>>num;
+    
+    while(num--)
+    {
+        int i,n;
+        
+        cin>>n;
+        
+        vector<int>v(n);
+        
+        for(i=0;i<n;i++)
+            cin>>v[i];
+        
+        sort(v.begin(),v.end());
+        
+        if(n&1)
+            cout<<v[n/2];
+        else
+            cout<<v[(n/2)-1];
+        cout<<"\n";
+    }
+    return 0;
+}
