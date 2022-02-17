@@ -1,0 +1,49 @@
+1. sum of matrix elements
+t=int(input())
+
+while(t):
+    n=int(input())
+    list1=[]
+    sum=0
+    for i in range(n):
+        entries = list(map(int, input().split()))
+        list1.append(entries)
+    for i in range(n):
+        for j in range(n):
+            if (i == j or (i + j) == n - 1):
+                sum += list1[i][j]
+            elif(i == 0 or j == 0 or i == n - 1 or j == n - 1):
+                sum += list1[i][j]
+ 
+    print(sum)
+    t-=1
+   2. stand in queue
+   t=int(input())
+while(t):
+    arr=list(map(int,input().split()))
+    diff=[]
+    n=arr[0]
+    for i in range(1,n):
+        diff.append(abs(arr[i]-arr[i+1]))
+    c=0
+    for i in range(len(diff)-1):
+        if abs(diff[i]-diff[i+1])!=1:
+            c+=1
+    if c==0:
+        print("Correct Formation")
+    else:
+        print("Incorrect Formation")
+    t-=1
+    3.Multiplication of a number with its complement with same number of bits
+    import math
+  
+def Complement(n):
+    number_of_bits = (int)(math.floor(math.log(n) /
+                                math.log(2))) + 1;
+    return ((1 << number_of_bits) - 1) ^ n;
+t=int(input())
+while(t):
+    n=int(input())
+    c=Complement(n)
+    print(n*c)
+    t-=1
